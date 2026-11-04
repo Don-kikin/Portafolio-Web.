@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="serio">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111F">
+  <meta name="description" content="Portafolio profesional y CV de Luis Enrique Jiménez Bernal: Desarrollador Java Full Stack Jr., análisis de datos y finanzas.">
+  <meta property="og:title" content="Luis Enrique Jiménez Bernal — Data & Digital Lab">
+  <meta property="og:description" content="Desarrollador Java Full Stack Jr. y Analista de Datos Financieros. Proyectos, simulador 3D y CV descargable.">
+  <meta property="og:type" content="website">
+  <title>Luis Enrique Jiménez Bernal — Data & Digital Lab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">LJ<span>.</span></span>
+        <span class="brand-name">Data <span>&</span> Digital Lab</span>
+      </a>
+
+      <div class="nav-ux-controls">
+        <span class="badge-lang" title="Certificado Harmon Hall">EN: B2 / C1</span>
+        <button id="themeToggleBtn" class="theme-toggle" type="button" aria-label="Cambiar entre modo serio y colorido">
+          <span id="themeIcon">⌘</span> <span id="themeText">SERIO</span>
+        </button>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#simulador">Simulador 3D</a>
+        <a href="#laboratorio">Laboratorio</a>
+        <a href="#tutoriales">Tutoriales</a>
+        <a href="#cv-ejecutivo">Mi CV</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a class="nav-contact" href="#contacto">Contacto <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- ==================== HERO ==================== -->
+    <section class="hero section container" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> JAVA FULL STACK JR · DATA & FINANCE</p>
+        <h1>Luis Enrique<br><span>Jiménez Bernal</span></h1>
+        <p class="hero-lead">Desarrollador Java Full Stack Jr. y Analista Financiero con facilidad para abstraer problemas complejos y traducirlos en algoritmos, arquitecturas web limpias y decisiones basadas en datos.</p>
+        <p class="hero-description">Experiencia desarrollando interfaces responsivas y servicios backend con Java, Spring Boot, JavaScript (ES6+), HTML5, CSS3, Bootstrap 5 y MySQL, respaldado por 3 años de rigor operativo en el sector bancario con récord de cero incidencias en auditorías.</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyectos">Explorar proyectos <span>↘</span></a>
+
+          <!-- Descarga de CV Dual Inteligente -->
+          <div class="dropdown">
+            <button class="button button-secondary" type="button">Descargar CV <span>▼</span></button>
+            <div class="dropdown-content">
+              <a href="CV.Luis.Enrique.Jiménez.Bernal.pdf" target="_blank" download="CV_Luis_Enrique_Jimenez_FullStack.pdf">📄 CV — Java Full Stack Jr. (PDF)</a>
+              <a href="CV_Jimenez_Bernal_Luis_Enrique 2026.pdf" target="_blank" download="CV_Luis_Enrique_Jimenez_Data_Finanzas.pdf">📊 CV — Data & Finanzas (PDF)</a>
+              <a href="#cv-ejecutivo">👁️ Ver CV con Foto e Imprimir</a>
+            </div>
+          </div>
+
+          <a class="button button-secondary" href="https://github.com/Don-kikin" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i class="mini-icon">⌘</i> Cero incidencias en auditorías</span>
+          <div class="github-live" id="githubStatus">
+            <i class="status-dot"></i> Conectando con GitHub...
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-top"><span>PROFILE_OVERVIEW</span><span class="mono">SYS.001</span></div>
+        <div class="orbital">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="core core-photo-wrapper">
+            <img src="Luis Enrique.jpg" alt="Fotografía de perfil de Luis Enrique Jiménez Bernal" class="hero-profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="core-fallback" style="display:none;">
+              <span>LJ</span>
+              <small>DATA<br>ENGINE</small>
+            </div>
+          </div>
+          <span class="orbit-node node-a"></span>
+          <span class="orbit-node node-b"></span>
+          <span class="orbit-node node-c"></span>
+        </div>
+        <div class="visual-bottom">
+          <div>
+            <span class="metric-label">ESPECIALIDAD</span>
+            <strong>Java · Spring Boot · SQL · Power BI</strong>
+          </div>
+          <span class="live-indicator"><i></i> DISPONIBLE PARA REUBICACIÓN</span>
+        </div>
+        <div class="visual-grid"></div>
+      </div>
+      <div class="hero-scroll"><span></span> DESPLAZARSE PARA EXPLORAR</div>
+    </section>
+
+    <!-- ==================== QUICK STATS ==================== -->
+    <section class="quick-stats container" aria-label="Áreas profesionales">
+      <div><span class="stat-number">01</span><span class="stat-text">Desarrollo Java Full Stack</span></div>
+      <div><span class="stat-number">02</span><span class="stat-text">Análisis de Datos y SQL</span></div>
+      <div><span class="stat-number">03</span><span class="stat-text">Finanzas y Compliance (KYC)</span></div>
+      <div><span class="stat-number">04</span><span class="stat-text">Liderazgo Scrum y Git/GitHub</span></div>
+    </section>
+
+    <!-- ==================== 01. PROYECTOS ==================== -->
+    <section class="section container" id="proyectos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / TRABAJO SELECCIONADO</p>
+          <h2>Proyectos con <span>propósito.</span></h2>
+        </div>
+        <p class="section-intro">Casos de estudio, e-commerce colaborativos y herramientas analíticas que conectan reglas de negocio con código mantenible.</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
+        <button class="filter-button active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Desarrollo Web / E-Commerce</button>
+        <button class="filter-button" type="button" data-filter="sistemas" aria-pressed="false">Java / Sistemas ERP</button>
+        <button class="filter-button" type="button" data-filter="datos" aria-pressed="false">Datos & Finanzas</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid">
+        <!-- Proyecto 1: Simulador 3D -->
+        <article class="project-card featured" data-category="sistemas datos">
+          <div class="project-art art-printer">
+            <div class="art-label">PROJECT_01 / MOTOR FINANCIERO</div>
+            <div class="printer-illustration">
+              <div class="printer-frame">
+                <div class="printer-rail"></div>
+                <div class="printer-head"></div>
+                <div class="printer-bed"></div>
+                <div class="print-object"></div>
+              </div>
+              <div class="printer-glow"></div>
+            </div>
+            <span class="project-index">01</span>
+          </div>
+          <div class="project-body">
+            <div class="tag-row">
+              <span class="tag tag-cyan">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">MySQL</span>
+              <span class="tag tag-impact">Control de Inventario</span>
+            </div>
+            <h3>Simulador de rentabilidad y producción 3D</h3>
+            <p>Motor de costos para estimar material, energía, depreciación, precio sugerido y margen comercial con control transaccional de filamentos.</p>
+            <div class="project-details">
+              <div><b>Problema</b><span>Cotización empírica y stock difícil de auditar.</span></div>
+              <div><b>Solución</b><span>Cálculo con BigDecimal y reserva atómica.</span></div>
+            </div>
+            <div class="project-footer">
+              <span class="status-pill"><i></i> Demo Interactiva</span>
+              <a href="#simulador" class="text-link">Probar simulador <span>↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: Ajolote & Grulla -->
+        <article class="project-card" data-category="web sistemas">
+          <div class="project-art art-b2b">
+            <div class="art-label">PROJECT_02 / E-COMMERCE FULL STACK</div>
+            <div class="b2b-window">
+              <div class="window-bar"><i></i><i></i><i></i><span>AJOLOTE & GRULLA</span></div>
+              <div class="window-layout">
+                <div class="window-side"></div>
+                <div class="window-content">
+                  <div class="window-title"></div>
+                  <div class="window-cards"><i></i><i></i><i></i></div>
+                  <div class="window-chart"></div>
+                </div>
+              </div>
+            </div>
+            <span class="project-index">02</span>
+          </div>
+          <div class="project-body">
+            <div class="tag-row">
+              <span class="tag tag-cyan">JavaScript ES6+</span>
+              <span class="tag">Bootstrap 5</span>
+              <span class="tag">Git / PRs</span>
+              <span class="tag tag-impact">Arquitectura Limpia</span>
+            </div>
+            <h3>E-Commerce "Ajolote & Grulla"</h3>
+            <p>Desarrollo de vistas responsivas y módulos interactivos (carruseles, tarjetas dinámicas y arquitectura de about.html) con flujo colaborativo en GitHub.</p>
+            <div class="project-details">
+              <div><b>Rol</b><span>Desarrollador Java Full Stack (Sep - Dic 2026).</span></div>
+              <div><b>Control</b><span>Gestión de ramas (branches) y Pull Requests sin conflictos.</span></div>
+            </div>
+            <div class="project-footer">
+              <span class="status-pill"><i></i> Proyecto Integrador</span>
+              <a href="https://github.com/Don-kikin" target="_blank" rel="noreferrer" class="text-link">Ver repositorio <span>↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 3: Sportcommerce Hackathon -->
+        <article class="project-card" data-category="web">
+          <div class="project-art art-b2b">
+            <div class="art-label">PROJECT_03 / HACKATHON</div>
+            <div class="b2b-window">
+              <div class="window-bar"><i></i><i></i><i></i><span>SPORTCOMMERCE</span></div>
+              <div class="window-layout">
+                <div class="window-side"></div>
+                <div class="window-content">
+                  <div class="window-title"></div>
+                  <div class="window-cards"><i></i><i></i><i></i></div>
+                  <div class="window-chart"></div>
+                </div>
+              </div>
+            </div>
+            <span class="project-index">03</span>
+          </div>
+          <div class="project-body">
+            <div class="tag-row">
+              <span class="tag tag-cyan">JavaScript</span>
+              <span class="tag">LocalStorage</span>
+              <span class="tag">Bootstrap 5</span>
+              <span class="tag tag-impact">Entrega Bajo Presión</span>
+            </div>
+            <h3>Hackathon E-Commerce "Sportcommerce"</h3>
+            <p>Tienda en línea de equipamiento deportivo con filtrado dinámico por categorías, ordenamiento de descuentos, reloj regresivo en tiempo real y carrito persistente.</p>
+            <div class="project-details">
+              <div><b>Vistas</b><span>index.html, Login.html y Ofertas.html.</span></div>
+              <div><b>Calidad</b><span>Persistencia en LocalStorage con manejo try/catch.</span></div>
+            </div>
+            <div class="project-footer">
+              <span class="status-pill status-purple"><i></i> Hackathon Oct 2026</span>
+              <a href="https://github.com/Don-kikin" target="_blank" rel="noreferrer" class="text-link">Ver código <span>↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyecto 4: B2B Connect & Dashboard -->
+        <article class="project-card" data-category="datos web sistemas">
+          <div class="project-art art-dashboard">
+            <div class="art-label">PROJECT_04 / BI & B2B</div>
+            <div class="dash-mock">
+              <div class="dash-sidebar"></div>
+              <div class="dash-main">
+                <div class="dash-kpis"><i></i><i></i><i></i></div>
+                <div class="dash-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="dash-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <span class="project-index">04</span>
+          </div>
+          <div class="project-body">
+            <div class="tag-row">
+              <span class="tag tag-cyan">SQL / Power BI</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag tag-impact">Mitigación de Riesgos</span>
+            </div>
+            <h3>B2B Connect & Análisis Crediticio</h3>
+            <p>Plataforma con comparador métrico de costo por gramo/mililitro y modelo de evaluación paramétrica de portafolios y riesgo crediticio.</p>
+            <div class="project-details">
+              <div><b>Enfoque</b><span>Comparación métrica de proveedores y KPIs.</span></div>
+              <div><b>Compliance</b><span>Datos sintéticos con rigor normativo KYC.</span></div>
+            </div>
+            <div class="project-footer">
+              <span class="status-pill"><i></i> Prototipo & BI</span>
+              <a href="BitBuster ecomerce.html" target="_blank" class="text-link">Ver prototipo B2B <span>↗</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== 02. SIMULADOR 3D ==================== -->
+    <section class="section container" id="simulador">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / DEMOSTRACIÓN INTERACTIVA</p>
+          <h2>Simulador de costos <span>3D.</span></h2>
+        </div>
+        <p class="section-intro">Explora cómo cambian el costo unitario, el recargo (markup) y el margen sobre ventas según el filamento, el consumo eléctrico y el desgaste.</p>
+      </div>
+      <div class="simulator-layout">
+        <form class="simulator-form panel" id="simulatorForm">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">INPUTS / PARÁMETROS</span>
+              <h3>Configurar escenario</h3>
+            </div>
+            <span class="panel-icon">⌘</span>
+          </div>
+          <label>Precio de bobina (MXN)<input id="spoolPrice" type="number" min="0.01" step="0.01" value="350" required></label>
+          <div class="form-row">
+            <label>Peso neto (g)<input id="spoolWeight" type="number" min="1" step="1" value="1000" required></label>
+            <label>Peso de pieza (g)<input id="partWeight" type="number" min="0.1" step="0.1" value="85" required></label>
+          </div>
+          <div class="form-row">
+            <label>Tiempo (min)<input id="printMinutes" type="number" min="1" step="1" value="240" required></label>
+            <label>Precio venta (MXN)<input id="salePrice" type="number" min="0.01" step="0.01" value="180" required></label>
+          </div>
+          <div class="form-row">
+            <label>Consumo medio (W)<input id="powerWatts" type="number" min="1" step="1" value="150" required></label>
+            <label>Tarifa (MXN/kWh)<input id="kwhRate" type="number" min="0" step="0.0001" value="1.2" required></label>
+          </div>
+          <div class="form-row">
+            <label>Impresora (MXN)<input id="printerCost" type="number" min="0" step="0.01" value="4000" required></label>
+            <label>Vida útil (horas)<input id="printerLife" type="number" min="1" step="1" value="5000" required></label>
+          </div>
+          <div class="form-row">
+            <label>Desperdicio esperado (%)<input id="wasteRate" type="number" min="0" max="99" step="0.1" value="5" required></label>
+            <label>Otros costos (MXN)<input id="otherCosts" type="number" min="0" step="0.01" value="12" required></label>
+          </div>
+          <label>Margen objetivo (%)<input id="targetMargin" type="number" min="0" max="99" step="1" value="40" required></label>
+          <button class="button button-primary button-full" type="submit">Calcular escenario <span>↗</span></button>
+          <p class="form-note">El simulador ejecuta validaciones en tiempo real sin descontar existencias del inventario físico.</p>
+        </form>
+
+        <div class="simulator-results">
+          <div class="result-hero panel">
+            <div>
+              <span class="eyebrow">COSTO TOTAL ESTIMADO</span>
+              <div class="big-number" id="totalCost">$0.00</div>
+              <span class="result-caption">MXN por pieza · estimación ilustrativa</span>
+            </div>
+            <div class="donut" id="marginDonut"><span id="marginDonutValue">0%</span></div>
+          </div>
+          <div class="cost-breakdown panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">DESGLOSE</span>
+                <h3>¿De dónde viene el costo?</h3>
+              </div>
+            </div>
+            <div class="cost-line"><span>Material</span><strong id="materialCost">$0.00</strong><div class="cost-track"><i id="materialBar"></i></div></div>
+            <div class="cost-line"><span>Energía</span><strong id="energyCost">$0.00</strong><div class="cost-track"><i id="energyBar"></i></div></div>
+            <div class="cost-line"><span>Desgaste de impresora</span><strong id="wearCost">$0.00</strong><div class="cost-track"><i id="wearBar"></i></div></div>
+            <div class="cost-line"><span>Otros costos</span><strong id="otherCostOut">$0.00</strong><div class="cost-track"><i id="otherBar"></i></div></div>
+          </div>
+          <div class="result-grid">
+            <div class="result-tile"><span>Utilidad estimada</span><strong id="profitValue">$0.00</strong><small>Precio − costo total</small></div>
+            <div class="result-tile"><span>Margen sobre ventas</span><strong id="salesMargin">0%</strong><small>Utilidad ÷ precio</small></div>
+            <div class="result-tile"><span>Markup / recargo</span><strong id="markupValue">0%</strong><small>Utilidad ÷ costo</small></div>
+            <div class="result-tile"><span>Precio para margen objetivo</span><strong id="suggestedPrice">$0.00</strong><small id="targetLabel">Objetivo: 40%</small></div>
+          </div>
+          <p class="simulator-disclaimer" id="simulatorMessage" role="status">Los resultados se actualizarán al calcular.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 03. LABORATORIO ==================== -->
+    <section class="section container" id="laboratorio">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">03 / I+D Y APRENDIZAJE ACTIVO</p>
+          <h2>Laboratorio <span>técnico.</span></h2>
+        </div>
+        <p class="section-intro">Experimentos documentados con objetivos, avances y próximos pasos.</p>
+      </div>
+      <div class="lab-grid">
+        <article class="lab-card panel">
+          <div class="lab-top"><span class="lab-symbol">◫</span><span class="status-pill status-purple"><i></i> En exploración</span></div>
+          <h3>Modelado analítico en SAP Analytics Cloud</h3>
+          <p>Exploración de planificación empresarial, visualización de indicadores financieros y modelado de escenarios.</p>
+          <div class="lab-progress">
+            <div><span>Avance documentado</span><strong>En progreso</strong></div>
+            <div class="progress-track"><i style="width:35%"></i></div>
+          </div>
+          <p class="next-step"><b>Siguiente paso:</b> publicar un caso práctico con datos sintéticos y métricas de rentabilidad.</p>
+        </article>
+        <article class="lab-card panel">
+          <div class="lab-top"><span class="lab-symbol">⌁</span><span class="status-pill"><i></i> Experimental</span></div>
+          <h3>Optimización 3D y Generación Multimedia con IA</h3>
+          <p>Calibración fina en Creality Ender-3 V3 SE con Orca Slicer/Blender y flujos de generación de imagen y video con IA.</p>
+          <div class="lab-progress">
+            <div><span>Avance documentado</span><strong>Activo</strong></div>
+            <div class="progress-track"><i style="width:60%"></i></div>
+          </div>
+          <p class="next-step"><b>Siguiente paso:</b> documentar parámetros óptimos de tolerancias y soportes en PLA+ y PETG.</p>
+        </article>
+      </div>
+
+      <div class="skills-section">
+        <div class="skills-heading">
+          <div>
+            <p class="eyebrow">MAPA DE COMPETENCIAS</p>
+            <h3>Árbol de habilidades</h3>
+          </div>
+          <p>Conexiones entre ingeniería de software, análisis financiero y herramientas colaborativas.</p>
+        </div>
+        <div class="skill-map">
+          <svg class="skill-lines" viewBox="0 0 800 330" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M400 165 L180 75 M400 165 L400 65 M400 165 L620 75 M400 165 L180 255 M400 165 L400 270 M400 165 L620 255"/>
+          </svg>
+          <div class="skill-node skill-core">Data &<br>Digital Lab</div>
+          <div class="skill-node skill-n1"><b>Datos & BI</b><span>SQL · MySQL · Power BI</span></div>
+          <div class="skill-node skill-n2"><b>Backend</b><span>Java · Spring Boot · JUnit</span></div>
+          <div class="skill-node skill-n3"><b>Frontend</b><span>JS (ES6+) · HTML5 · CSS3 · Bootstrap 5</span></div>
+          <div class="skill-node skill-n4"><b>Finanzas & Riesgo</b><span>Modelado · KYC · Matrices</span></div>
+          <div class="skill-node skill-n5"><b>Gestión & Flujo</b><span>Git/GitHub · Jira · Scrum</span></div>
+          <div class="skill-node skill-n6"><b>En expansión</b><span>SAP Analytics Cloud · IA</span></div>
+        </div>
+        <div class="skill-legend">
+          <span><i class="legend-dot legend-established"></i> Aplicado en proyectos y experiencia profesional</span>
+          <span><i class="legend-dot legend-learning"></i> En aprendizaje activo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 04. TUTORIALES ==================== -->
+    <section class="section container" id="tutoriales">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">04 / CONOCIMIENTO COMPARTIDO</p>
+          <h2>Notas de <span>campo.</span></h2>
+        </div>
+        <p class="section-intro">Artículos breves para explicar decisiones técnicas y conectar las finanzas con el código.</p>
+      </div>
+      <div class="article-grid">
+        <article class="article-card">
+          <div class="article-meta"><span>JAVA / FINANZAS</span><span>6 MIN</span></div>
+          <h3>Por qué usar BigDecimal en Java</h3>
+          <p>Precisión decimal, RoundingMode y control transaccional para calcular márgenes exactos.</p>
+          <div class="gist-mock">
+            <div><span class="an">@Transactional</span>(isolation = <span class="st">Isolation</span>.SERIALIZABLE)</div>
+            <div><span class="kw">public</span> <span class="st">OrdenDTO</span> <span class="fn">reservarMaterial</span>(<span class="st">Long</span> id) {</div>
+            <div>&nbsp;&nbsp;<span class="kw">if</span> (filamento.getGramos() &lt; req) {</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">throw new</span> <span class="st">InventarioException</span>();</div>
+            <div>&nbsp;&nbsp;}</div>
+            <div>}</div>
+          </div>
+        </article>
+        <article class="article-card">
+          <div class="article-meta"><span>PRICING / NEGOCIO</span><span>5 MIN</span></div>
+          <h3>Margen comercial vs. Markup</h3>
+          <p>Cómo programar algoritmos de precios sugeridos sin confundir el porcentaje sobre ventas con el recargo sobre el costo.</p>
+          <a href="#simulador" class="text-link" style="margin-top:auto">Probar en el simulador <span>↗</span></a>
+        </article>
+        <article class="article-card">
+          <div class="article-meta"><span>FRONTEND / JS</span><span>7 MIN</span></div>
+          <h3>Persistencia segura en LocalStorage</h3>
+          <p>Manejo de errores con bloques try/catch y sincronización de estado para carritos de compra en e-commerce.</p>
+          <a href="#proyectos" class="text-link" style="margin-top:auto">Ver aplicación en Sportcommerce <span>↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== 05. CV EJECUTIVO ACTUALIZADO CON FOTO ==================== -->
+    <section class="section container" id="cv-ejecutivo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">05 / CURRÍCULUM VITAE ACTUALIZADO</p>
+          <h2>Perfil <span>ejecutivo.</span></h2>
+        </div>
+        <div class="cv-top-actions">
+          <a class="button button-primary" href="CV.Luis.Enrique.Jiménez.Bernal.pdf" target="_blank" download="CV_Luis_Enrique_Jimenez_Bernal.pdf">Descargar CV Full Stack (PDF) <span>↓</span></a>
+          <a class="button button-secondary" href="CV_Jimenez_Bernal_Luis_Enrique 2026.pdf" target="_blank" download="CV_Luis_Enrique_Jimenez_Data.pdf">CV Data & Finanzas (PDF) <span>↓</span></a>
+          <button class="button button-secondary" type="button" id="printCvBtn">Imprimir / Guardar CV con Foto <span>🖨️</span></button>
+        </div>
+      </div>
+
+      <!-- Hoja de CV estilizada y lista para descarga/impresión -->
+      <article class="cv-sheet panel" id="printableCv">
+        <header class="cv-header">
+          <div class="cv-photo-box">
+            <img src="C:\Users\ljime\OneDrive\Escritorio\GENERATION DESARROLLADOR JAVA\Portafolio-web\src\assets\Luis Enrique.jpg" alt="Luis Enrique Jiménez Bernal" class="cv-avatar">
+          </div>
+          <div class="cv-title-box">
+            <span class="eyebrow">CURRÍCULUM VITAE VERIFICADO</span>
+            <h3>Luis Enrique Jiménez Bernal</h3>
+            <p class="cv-role">Desarrollador Java Full Stack Jr. &amp; Analista de Datos Financieros</p>
+            <div class="cv-contact-Links">
+              <a href="mailto:luisenriquejimenezber@gmail.com">✉️ luisenriquejimenezber@gmail.com</a>
+              <span>📱 +52 56 1195 1340</span>
+              <span>📍 Miguel Hidalgo, CDMX (Disponibilidad de reubicación)</span>
+              <a href="https://github.com/Don-kikin" target="_blank" rel="noreferrer">💻 GitHub: Don-kikin</a>
+            </div>
+          </div>
+        </header>
+
+        <div class="cv-body-grid">
+          <!-- Columna Principal del CV -->
+          <div class="cv-main-col">
+            <section class="cv-block">
+              <h4>PERFIL PROFESIONAL</h4>
+              <p>Desarrollador Java Full Stack Jr. con alta afinidad y facilidad para abstraer problemas complejos y traducirlos en lógica de programación, algoritmos y arquitecturas web limpias. Cuento con experiencia desarrollando interfaces responsivas y servicios backend con Java, Spring Boot, JavaScript, HTML5, CSS3, Bootstrap y MySQL, gestionando flujos colaborativos con Git/GitHub y Jira. Mi trayectoria laboral previa en entornos críticos de alta presión me dotó de una disciplina meticulosa, logrando un historial comprobado de cero incidencias y total integridad en el manejo de datos. Busco integrarme como Desarrollador Full Stack Junior o Analista de Datos aportando código mantenible, madurez profesional y autogestión desde el primer día.</p>
+            </section>
+
+            <section class="cv-block">
+              <h4>PROYECTOS DE DESARROLLO</h4>
+              <div class="cv-item">
+                <div class="cv-item-head">
+                  <strong>Desarrollador Java Full Stack | E-Commerce "Ajolote &amp; Grulla"</strong>
+                  <span>Sep 2026 – Dic 2026</span>
+                </div>
+                <ul>
+                  <li>Desarrollé vistas responsivas y módulos interactivos del frontend (incluyendo la arquitectura de <code>about.html</code>, carruseles y tarjetas de presentación dinámicas) utilizando HTML5, CSS3, Bootstrap 5 y JavaScript.</li>
+                  <li>Gestioné el control de versiones en GitHub trabajando con múltiples ramas (<em>branches</em>) y ejecutando <em>Pull Requests</em> (PR) para la comparación, revisión e integración segura de archivos sin conflictos.</li>
+                </ul>
+              </div>
+
+              <div class="cv-item">
+                <div class="cv-item-head">
+                  <strong>Hackathon | E-Commerce "Sportcommerce"</strong>
+                  <span>Octubre 2026</span>
+                </div>
+                <ul>
+                  <li>Construí en equipo y bajo alta presión de tiempo una tienda en línea de equipamiento deportivo (<code>index.html</code>, <code>Login.html</code>, <code>Ofertas.html</code>) aplicando diseño responsivo con HTML5, JavaScript, CSS3 y Bootstrap.</li>
+                  <li>Programé la lógica de negocio en JavaScript para el filtrado dinámico por categorías, ordenamiento de descuentos, reloj regresivo en tiempo real y persistencia del carrito en <code>LocalStorage</code> con manejo de errores (<code>try/catch</code>).</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="cv-block">
+              <h4>EXPERIENCIA LABORAL</h4>
+              <div class="cv-item">
+                <div class="cv-item-head">
+                  <strong>Ejecutivo de Crédito y Servicios Bancarios | Banjercito S.N.C.</strong>
+                  <span>Mar 2023 – Abr 2026</span>
+                </div>
+                <ul>
+                  <li>Operé sistemas institucionales de misión crítica bajo altos niveles de presión y volumen transaccional, manteniendo un récord de <strong>0 incidencias en auditorías</strong> operativas y de cumplimiento normativo (KYC/PLD) durante 3 años consecutivos.</li>
+                  <li>Apliqué lógica paramétrica y reglas de negocio estructuradas para evaluar la viabilidad de expedientes complejos (ajustando parámetros del 49% al 69% según matrices de control), funcionando como puente entre la operación diaria y el análisis de datos.</li>
+                  <li>Diseñé y automaticé reportes operativos mediante Excel Avanzado (Power Query) y Power BI, procesando un alto volumen de datos confidenciales bajo estrictos estándares de seguridad.</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          <!-- Columna Lateral del CV -->
+          <aside class="cv-side-col">
+            <section class="cv-block">
+              <h4>HABILIDADES TÉCNICAS</h4>
+              <div class="cv-skill-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>JavaScript (ES6+)</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>Bootstrap 5</span>
+                <span>MySQL / SQL</span>
+                <span>APIs REST</span>
+                <span>Git &amp; GitHub (PRs)</span>
+                <span>Jira (Scrum)</span>
+                <span>JUnit</span>
+                <span>Power BI</span>
+                <span>Excel (Power Query)</span>
+                <span>SAP Analytics Cloud</span>
+                <span>IA Generativa</span>
+              </div>
+            </section>
+
+            <section class="cv-block">
+              <h4>HABILIDADES BLANDAS</h4>
+              <ul class="cv-compact-list">
+                <li>Lógica de programación</li>
+                <li>Atención meticulosa al detalle</li>
+                <li>Trabajo bajo presión</li>
+                <li>Resolución de problemas</li>
+                <li>Organización de equipos</li>
+                <li>Autogestión y adaptabilidad</li>
+                <li>Comunicación efectiva</li>
+              </ul>
+            </section>
+
+            <section class="cv-block">
+              <h4>FORMACIÓN EDUCATIVA</h4>
+              <div class="cv-edu-item">
+                <strong>Bootcamp Desarrollador Java Full Stack</strong>
+                <span>Generation México | Sep 2026 – Dic 2026</span>
+              </div>
+              <div class="cv-edu-item">
+                <strong>Maestría en Finanzas (Promedio: 9.87)</strong>
+                <span>UNITEC | 2024 – 2025</span>
+              </div>
+              <div class="cv-edu-item">
+                <strong>Lic. en Administración de Empresas (Titulado)</strong>
+                <span>UNITEC | 2017 – 2020</span>
+              </div>
+            </section>
+
+            <section class="cv-block">
+              <h4>CURSOS E IDIOMAS</h4>
+              <ul class="cv-compact-list">
+                <li><strong>Introducción a Java:</strong> Accenture (Sep 2026)</li>
+                <li><strong>Power BI:</strong> Santander Open Academy (Jul 2026)</li>
+                <li><strong>Inglés:</strong> Certificado Harmon Hall Adult Program (B2 / C1 High Pass)</li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </article>
+    </section>
+
+    <!-- ==================== 06. SOBRE MÍ Y HOBBIES ==================== -->
+    <section class="section container" id="sobre-mi">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">06 / TRAYECTORIA Y STACK OPERATIVO</p>
+          <h2>Más allá del <span>código.</span></h2>
+        </div>
+        <p class="section-intro">Una combinación de operaciones estructuradas, rigor financiero y pasión por la tecnología.</p>
+      </div>
+      <div class="about-layout">
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">SEP 2026 — DIC 2026</span>
+            <h3>Generation México · Desarrollador Java Full Stack</h3>
+            <p>Desarrollo de proyectos integradores e-commerce con Java, Spring Boot, JavaScript, Bootstrap 5, MySQL, control de versiones con Git/GitHub y gestión ágil en Jira (Scrum).</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">MAR 2023 — ABR 2026</span>
+            <h3>Banjercito S.N.C. · Ejecutivo de Crédito y Servicios Bancarios</h3>
+            <p>Operación de sistemas críticos, evaluación paramétrica de expedientes (49% a 69%) y cumplimiento normativo (KYC) con <b>cero incidencias en auditorías</b> durante 3 años consecutivos.</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">2024 — 2025</span>
+            <h3>UNITEC · Maestría en Finanzas</h3>
+            <p>Análisis cuantitativo, evaluación de portafolios y optimización de rentabilidad (Promedio: 9.87).</p>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">2017 — 2020</span>
+            <h3>UNITEC · Licenciatura en Administración de Empresas</h3>
+            <p>Titulado con Cédula Profesional. Gestión de procesos organizacionales y administración.</p>
+          </article>
+        </div>
+
+        <div class="about-right">
+          <aside class="about-aside panel">
+            <p class="eyebrow">PERFIL EN T</p>
+            <h3>Finanzas + ingeniería de software.</h3>
+            <p>Traduzco necesidades operativas y reglas de negocio en arquitecturas web limpias, bases de datos relacionales y tableros ejecutivos.</p>
+
+            <div class="bento-stack">
+              <div class="stack-item"><span>01 / HARDWARE</span><strong>Ender-3 V3 SE<br>Odyssey OLED G9 49"</strong></div>
+              <div class="stack-item"><span>02 / DEV TOOLS</span><strong>VS Code, Git/GitHub<br>Jira &amp; Spring Boot</strong></div>
+              <div class="stack-item" style="grid-column: span 2;"><span>03 / DATA &amp; BI</span><strong>MySQL, Power BI, Excel Power Query, SAP Analytics Cloud</strong></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Menú Radial de Hobbies -->
+      <div class="interests">
+        <div class="interests-heading">
+          <p class="eyebrow">FUERA DEL TRABAJO</p>
+          <h3>Intereses tácticos (Haz clic en el núcleo).</h3>
+        </div>
+
+        <div class="radial-container" id="radialMenuContainer">
+          <button class="radial-center-btn" id="radialCenterBtn" type="button" aria-expanded="false">
+            <span class="mono">KIKE</span>
+          </button>
+
+          <div class="radial-items">
+            <article class="radial-item" style="--angle: 0deg;">
+              <span>▦</span><h4>Manufactura 3D</h4><p>Calibración iterativa en PLA+ y PETG.</p>
+            </article>
+            <article class="radial-item" style="--angle: 90deg;">
+              <span>↗</span><h4>Disciplina física</h4><p>Entrenamiento de fuerza, pesas y dominadas.</p>
+            </article>
+            <article class="radial-item" style="--angle: 180deg;">
+              <span>⌁</span><h4>Rutas Chopper</h4><p>Motociclismo estilo crucero y mecánica.</p>
+            </article>
+            <article class="radial-item" style="--angle: 270deg;">
+              <span>◈</span><h4>Estrategia</h4><p>Videojuegos tácticos y tiempo con mis mascotas.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 07. CONTACTO Y TERMINAL ==================== -->
+    <section class="section container contact-section" id="contacto">
+      <div class="contact-panel">
+        <div>
+          <p class="eyebrow">07 / SIGUIENTE PASO</p>
+          <h2>Construyamos algo <span>útil.</span></h2>
+          <p>Disponible para posiciones de Desarrollador Java Full Stack Jr. o Analista de Datos Operativos/Financieros. Explora mis repositorios o descarga mi CV.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:luisenriquejimenezber@gmail.com">Enviar correo <span>↗</span></a>
+          <a class="button button-secondary" href="https://github.com/Don-kikin" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+          <button class="button button-secondary" id="terminalToggle" type="button" aria-expanded="false" aria-controls="terminalPanel">&gt;_ run_kike.exe</button>
+        </div>
+      </div>
+
+      <div class="terminal panel" id="terminalPanel" hidden>
+        <div class="terminal-head">
+          <span><i></i><i></i><i></i> TERMINAL / PORTFOLIO</span>
+          <button id="terminalClose" type="button" aria-label="Cerrar terminal">×</button>
+        </div>
+        <div class="terminal-output" id="terminalOutput" aria-live="polite">
+          <p>Portafolio interactivo de Luis Enrique Jiménez Bernal. Escribe <b>help</b> para ver los comandos disponibles.</p>
+        </div>
+        <form id="terminalForm" class="terminal-form">
+          <label for="terminalInput" class="sr-only">Comando</label>
+          <span>&gt;</span>
+          <input id="terminalInput" autocomplete="off" spellcheck="false" placeholder="help, projects, cv, skills, about, clear">
+          <button type="submit">Ejecutar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">LJ<span>.</span></span>
+        <span class="brand-name">Data <span>&</span> Digital Lab</span>
+      </a>
+      <p>Diseñado con intención. Construido paso a paso.</p>
+      <span class="footer-copy">© <span id="year">2026</span> Luis Enrique Jiménez Bernal</span>
+    </div>
+  </footer>
+</body>
+</html>
