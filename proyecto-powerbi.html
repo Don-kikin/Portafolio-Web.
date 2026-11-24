@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard interactivo de Power BI y análisis operativo de aglomeración en gimnasio universitario (62,184 registros).">
+  <title>Power BI &amp; Analítica Operativa | Luis Enrique Jiménez Bernal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/proyecto-powerbi.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+  <script src="./js/proyecto-powerbi.js" defer></script>
+</head>
+<body>
+  <!-- Animación de entrada rápida: barras de abajo hacia arriba -->
+  <div class="pbi-intro-overlay" id="pbiIntroOverlay" aria-hidden="true">
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+    <div class="pbi-intro-bar"></div>
+  </div>
+
+  <!-- Mismo fondo cibernético del portafolio principal -->
+  <div class="bg-materialize-wrap" aria-hidden="true">
+    <video src="./video/Gym-Background.mp4" alt="" class="bg-image-layer" autoplay muted loop>
+  </div>
+
+  <main class="pbi-wrapper">
+    <!-- Barra superior de navegación y descargas -->
+    <header class="pbi-topbar">
+      <div class="pbi-topbar-left">
+        <a href="./index.html" class="header-pill">← Volver al Portafolio</a>
+        <div class="pbi-title-group">
+          <span class="pbi-eyebrow">POWER BI · ESQUEMA ESTRELLA · 62,184 REGISTROS</span>
+          <h1>Aglomeración en el Gimnasio del Campus</h1>
+          <p>Optimización de turnos de personal, ventanas de mantenimiento y estacionalidad académica basada en datos reales.</p>
+        </div>
+      </div>
+
+      <div class="pbi-topbar-actions">
+        <a href="./assets/data/Aglomeración en el gimnasio del campus.pbix" download="Aglomeracion_Gimnasio_Campus.pbix" class="header-pill header-pill-amber">
+          Descargar .PBIX ↓
+        </a>
+        <a href="./assets/data/Aglomeración en el gimnasio del campus.csv" download="Aglomeracion_Gimnasio_Campus.csv" class="header-pill">
+          Dataset .CSV ↓
+        </a>
+      </div>
+    </header>
+
+    <!-- Selector de modo: Web Interactivo (siempre disponible) vs Power BI Service Embed -->
+    <div class="pbi-mode-bar">
+      <div class="pbi-mode-tabs" role="tablist" aria-label="Modo de visualización">
+        <button type="button" class="mode-btn is-active" data-mode="web" role="tab" aria-selected="true">
+          Dashboard Interactivo Web (Datos en Vivo)
+        </button>
+        <button type="button" class="mode-btn" data-mode="embed" role="tab" aria-selected="false">
+          Visor Power BI Service (Embed)
+        </button>
+      </div>
+      <div class="pbi-status-badge" id="datasetStatus">
+        <span class="status-dot"></span> Cargando 62,184 registros del CSV...
+      </div>
+    </div>
+
+    <!-- Respaldo manual en caso de abrir el HTML directo con doble clic (file://) -->
+    <section class="pbi-fallback-banner" id="localFileFallback" hidden>
+      <div>
+        <strong>Aviso de entorno local (<code>file://</code>):</strong> Los navegadores bloquean la carga automática de archivos CSV al abrir el HTML con doble clic. Usa <em>Live Server</em> / GitHub Pages o selecciona el archivo <code>gym-occupancy.csv</code> manualmente aquí:
+      </div>
+      <label class="header-pill header-pill-primary" style="cursor:pointer;">
+        Cargar CSV local
+        <input type="file" id="manualCsvInput" accept=".csv" hidden>
+      </label>
+    </section>
+
+    <!-- =========================================================
+         MODO 1: DASHBOARD INTERACTIVO WEB (4 PÁGINAS DEL PBIX)
+         ========================================================= -->
+    <section id="webDashboardView" class="pbi-canvas-shell">
+
+      <!-- Barra de Segmentadores Cruzados (Slicers) -->
+      <section class="pbi-slicers-panel" aria-label="Segmentadores de datos">
+        <div class="slicer-group">
+          <label for="slicerDay">Día de la semana (Dim_Day_Of_Week)</label>
+          <select id="slicerDay">
+            <option value="all">Todos los días</option>
+            <option value="0">Lunes</option>
+            <option value="1">Martes</option>
+            <option value="2">Miércoles</option>
+            <option value="3">Jueves</option>
+            <option value="4">Viernes</option>
+            <option value="5">Sábado</option>
+            <option value="6">Domingo</option>
+          </select>
+        </div>
+
+        <div class="slicer-group">
+          <label for="slicerShift">Turno de personal (Dim_Hour)</label>
+          <select id="slicerShift">
+            <option value="all">Todos los turnos</option>
+            <option value="Madrugada">Madrugada (00:00 - 05:59)</option>
+            <option value="Matutino">Matutino (06:00 - 11:59)</option>
+            <option value="Vespertino">Vespertino (12:00 - 17:59)</option>
+            <option value="Nocturno">Nocturno (18:00 - 23:59)</option>
+          </select>
+        </div>
+
+        <div class="slicer-group">
+          <label for="slicerSemester">Régimen académico (Dim_Semester)</label>
+          <select id="slicerSemester">
+            <option value="all">Todos los periodos</option>
+            <option value="Inicio de Semestre">Inicio de Semestre</option>
+            <option value="Semestre Regular">Semestre Regular</option>
+            <option value="Vacaciones / Receso">Vacaciones / Receso</option>
+          </select>
+        </div>
+
+        <div class="slicer-group">
+          <label for="slicerMonth">Mes (Dim_Month)</label>
+          <select id="slicerMonth">
+            <option value="all">Todos los meses</option>
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+          </select>
+        </div>
+
+        <div class="slicer-actions">
+          <button type="button" id="resetSlicersBtn" class="btn-reset-filters">Limpiar filtros</button>
+        </div>
+      </section>
+
+      <!-- Tarjetas KPI Dinámicas (mismas 5 métricas de tu reporte Power BI) -->
+      <section class="pbi-kpi-grid" aria-label="Indicadores clave de desempeño">
+        <article class="kpi-card">
+          <span class="kpi-label">Flujo Promedio</span>
+          <strong class="kpi-value" id="kpiAvgFlow">—</strong>
+          <span class="kpi-sub">personas / medición</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Ocupación Máxima</span>
+          <strong class="kpi-value kpi-amber" id="kpiMaxOcc">—</strong>
+          <span class="kpi-sub">pico histórico filtrado</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Hora Pico (Rush Hour)</span>
+          <strong class="kpi-value kpi-rose" id="kpiRushHour">—</strong>
+          <span class="kpi-sub" id="kpiRushSub">mayor demanda promedio</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Ventana Mantenimiento</span>
+          <strong class="kpi-value kpi-mint" id="kpiBestMaint">—</strong>
+          <span class="kpi-sub" id="kpiMaintSub">menor afluencia promedio</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">Entrenadores Sugeridos</span>
+          <strong class="kpi-value kpi-cyan" id="kpiTrainers">—</strong>
+          <span class="kpi-sub">ratio operativo 1 : 15</span>
+        </article>
+      </section>
+
+      <!-- Pestañas de las 4 páginas del reporte Power BI -->
+      <nav class="pbi-report-tabs" aria-label="Páginas del informe">
+        <button type="button" class="report-tab is-active" data-page="1">
+          <span>01</span> Curva Horaria y Turnos
+        </button>
+        <button type="button" class="report-tab" data-page="2">
+          <span>02</span> Semanal y Régimen Académico
+        </button>
+        <button type="button" class="report-tab" data-page="3">
+          <span>03</span> Estacionalidad Anual
+        </button>
+        <button type="button" class="report-tab" data-page="4">
+          <span>04</span> Clima y Distribución por Turno
+        </button>
+      </nav>
+
+      <!-- Lienzo principal: Gráfico + Tabla / Matriz -->
+      <section class="pbi-visual-grid">
+        <article class="pbi-panel pbi-chart-panel">
+          <div class="pbi-panel-head">
+            <div>
+              <h2 id="chartTitle">Curva Horaria para Turnos y Mantenimiento</h2>
+              <p id="chartSubtitle">Flujo promedio de usuarios (eje izquierdo) frente a entrenadores requeridos (eje derecho) por hora.</p>
+            </div>
+            <span class="pbi-chart-tag" id="chartTag">Líneas · Doble Eje</span>
+          </div>
+          <div class="pbi-chart-box">
+            <canvas id="mainReportChart"></canvas>
+          </div>
+        </article>
+
+        <article class="pbi-panel pbi-table-panel">
+          <div class="pbi-panel-head">
+            <div>
+              <h3 id="tableTitle">Detalle Operativo por Hora</h3>
+              <p id="tableSubtitle">Valores agregados en tiempo real según los segmentadores activos.</p>
+            </div>
+          </div>
+          <div class="pbi-table-scroll">
+            <table class="pbi-data-table" id="mainReportTable">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <!-- Documentación técnica del modelo estrella -->
+      <section class="pbi-architecture-strip">
+        <div class="arch-item">
+          <h4>Modelo Estrella (.PBIX)</h4>
+          <p>Tabla de hechos <code>Campus Gym Occupancy</code> relacionada con <code>Dim_Hour</code>, <code>Dim_Day_Of_Week</code>, <code>Dim_Month</code> y <code>Dim_Semester</code>.</p>
+        </div>
+        <div class="arch-item">
+          <h4>Reglas Operativas &amp; DAX</h4>
+          <p>Cálculo dinámico de <em>Average Flow</em>, <em>Max Occupancy</em>, identificación de hora pico, ventana óptima de mantenimiento y personal requerido (1 entrenador por cada 15 usuarios).</p>
+        </div>
+        <div class="arch-item">
+          <h4>Portabilidad Garantizada</h4>
+          <p>El archivo <code>.pbix</code> mantiene los datos en caché y se enlaza al CSV alojado en GitHub Raw para permitir actualización sin errores en cualquier equipo.</p>
+        </div>
+      </section>
+    </section>
+
+    <!-- =========================================================
+         MODO 2: VISOR NATIVO POWER BI SERVICE (IFRAME OPCIONAL)
+         ========================================================= -->
+    <section id="embedPowerBiView" class="pbi-canvas-shell" hidden>
+      <div class="pbi-embed-container" id="powerBiEmbedContainer">
+        <!-- Se inyecta el iframe automáticamente si configuras POWERBI_EMBED_URL en js/proyecto-powerbi.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-monogram">LJ<span>.</span></div>
+        <p>Luis Enrique Jiménez Bernal<br>Desarrollo Full Stack &amp; Análisis de Datos</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a href="./index.html">Portafolio Principal</a>
+        <a href="./assets/data/gym-occupancy.pbix" download>Descargar Reporte .PBIX</a>
+        <a href="https://github.com/Don-kikin" target="_blank" rel="noreferrer">GitHub (@Don-kikin)</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto directo</h4>
+        <a href="mailto:luisenriquejimenezber@gmail.com">luisenriquejimenezber@gmail.com</a>
+        <span>Miguel Hidalgo, CDMX</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="currentYear">2026</span> Luis Enrique Jiménez Bernal. Todos los derechos reservados.
+    </div>
+  </footer>
+</body>
+</html>
