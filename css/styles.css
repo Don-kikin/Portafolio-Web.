@@ -43,13 +43,13 @@ a {
 /* =========================================================================
    FONDO CIBERNÉTICO (DE ARRIBA HACIA ABAJO)
    ========================================================================= */
-.bg-materialize-wrap {
+.bg-materialize-wrap::after {
+  content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  background: rgba(6, 11, 22, 0.72);
   pointer-events: none;
-  overflow: hidden;
-  background-color: var(--bg-page);
+  z-index: 1;
 }
 
 .bg-image-layer {

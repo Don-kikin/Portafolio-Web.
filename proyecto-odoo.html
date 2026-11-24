@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Módulo personalizado en Odoo 17 Community con Python ORM, PostgreSQL 15, Docker Compose, API REST y respaldos Linux.">
+  <title>Odoo 17 ERP &amp; API REST | Luis Enrique Jiménez Bernal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/proyecto-odoo.css">
+  <script src="./js/proyecto-odoo.js" defer></script>
+</head>
+<body>
+  <!-- Mismo fondo cibernético del portafolio -->
+  <div class="bg-materialize-wrap" aria-hidden="true">
+    <video src="./video/Background.mp4" alt="" class="bg-image-layer" autoplay muted loop>
+    </video>
+  </div>
+
+  <main class="odoo-wrapper">
+    <!-- Encabezado y accesos -->
+    <header class="odoo-topbar">
+      <div class="odoo-topbar-left">
+        <a href="./index.html" class="header-pill">← Volver al Portafolio</a>
+        <div class="odoo-title-group">
+          <span class="odoo-eyebrow">ODOO 17 COMMUNITY · PYTHON ORM · POSTGRESQL 15 · DOCKER</span>
+          <h1>ERP Finance Operations (erp_finance_ops)</h1>
+          <p>
+            Módulo personalizado en Odoo 17 contenerizado con Docker Compose para gestionar órdenes de compra en dólares,
+            validar políticas de margen bruto, consumir tipo de cambio vía API externa y exponer un endpoint REST protegido con API Key.
+          </p>
+        </div>
+      </div>
+      <div class="odoo-topbar-actions">
+        <a href="https://github.com/Don-kikin/odoo-erp-finance-ops" target="_blank" rel="noreferrer" class="header-pill header-pill-odoo">
+          Ver Código en GitHub ↗
+        </a>
+        <a href="./CV.Luis.Enrique.Jiménez.Bernal.pdf" target="_blank" download="CV_Luis_Enrique_Jimenez_Bernal.pdf" class="header-pill">
+          Descargar CV (PDF) ↓
+        </a>
+      </div>
+    </header>
+
+    <!-- Pilares técnicos del entorno -->
+    <section class="odoo-metrics-strip" aria-label="Resumen técnico del despliegue">
+      <article class="metric-box">
+        <span class="metric-kicker">Infraestructura</span>
+        <strong>Docker Compose</strong>
+        <p>Contenedores aislados `odoo:17.0` + `postgres:15` con volúmenes persistentes y `proxy_mode = True`.</p>
+      </article>
+      <article class="metric-box">
+        <span class="metric-kicker">Backend &amp; Reglas</span>
+        <strong>Python ORM</strong>
+        <p>Campos calculados persistidos (`store=True`), `@api.constrains`, trazabilidad `mail.thread` y candado de margen.</p>
+      </article>
+      <article class="metric-box">
+        <span class="metric-kicker">Integración</span>
+        <strong>API REST Bidireccional</strong>
+        <p>Consumo externo de tasa USD/MXN y endpoint `GET /api/v1/ordenes` con validación `X-API-Key` (`401` / `200`).</p>
+      </article>
+      <article class="metric-box">
+        <span class="metric-kicker">Operación Linux</span>
+        <strong>SQL &amp; Respaldos</strong>
+        <p>Consultas directas en PostgreSQL (`psql`) y script Bash `backup_odoo.sh` con `pg_dump` + filestore.</p>
+      </article>
+    </section>
+
+    <!-- Evidencia visual real del despliegue en localhost:8069 -->
+    <section class="odoo-section">
+      <div class="section-head">
+        <div>
+          <span class="odoo-eyebrow">01 / EVIDENCIA DEL DESPLIEGUE LOCAL</span>
+          <h2>Módulo montado en Odoo 17 (`erp_finance_db`)</h2>
+        </div>
+        <span class="env-badge">Entorno: localhost:8069 · Docker Desktop</span>
+      </div>
+
+      <div class="evidence-grid">
+        <figure class="evidence-card">
+          <div class="evidence-img-wrap">
+            <img src="./img/odoo-instalado.png" alt="Módulo ERP Finance Operations detectado en el catálogo de aplicaciones de Odoo 17" onerror="this.parentElement.classList.add('is-missing')">
+            <div class="img-fallback">Coloca tu captura en <code>assets/img/odoo-apps.png</code></div>
+          </div>
+          <figcaption>
+            <strong>Detección del módulo en Aplicaciones</strong>
+            <span>Odoo 17 detectando `erp_finance_ops` desde el volumen montado `/mnt/extra-addons` sobre la base `erp_finance_db`.</span>
+          </figcaption>
+        </figure>
+
+        <figure class="evidence-card">
+          <div class="evidence-img-wrap">
+            <img src="./img/odoo-interfaz.png" alt="Vista formulario y flujo de aprobación del módulo ERP Finance Operations" onerror="this.parentElement.classList.add('is-missing')">
+            <div class="img-fallback">Tras pulsar "Activar" en Odoo, guarda la captura del formulario en <code>assets/img/odoo-form.png</code></div>
+          </div>
+          <figcaption>
+            <strong>Formulario, Chatter y Reglas de Negocio</strong>
+            <span>Flujo `Borrador → En Revisión → Aprobado`, botón de tipo de cambio vía API externa y validación de margen mínimo.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Simulador interactivo transparente (Replica lógica Python y API REST) -->
+    <section class="odoo-section">
+      <div class="section-head">
+        <div>
+          <span class="odoo-eyebrow">02 / SANDBOX INTERACTIVO (RÉPLICA DE LÓGICA BACKEND)</span>
+          <h2>Prueba las reglas del módulo y la API REST sin instalar Docker</h2>
+        </div>
+        <span class="env-badge env-badge-info">Simulación web fiel a `finance_order.py` y `api.py`</span>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Panel izquierdo: Reglas ORM y Margen -->
+        <article class="odoo-panel">
+          <div class="panel-top">
+            <div>
+              <h3>Control de Orden (`erp.finance.order`)</h3>
+              <p>Replica `@api.depends`, `@api.constrains` y la excepción `UserError` de `action_approve()`.</p>
+            </div>
+            <span class="state-pill state-draft" id="simStateBadge">Borrador</span>
+          </div>
+
+          <div class="sim-form-grid">
+            <label>
+              Folio
+              <input type="text" id="simFolio" value="OC-2026-004">
+            </label>
+            <label>
+              Área Solicitante
+              <select id="simDept">
+                <option value="compras">Compras</option>
+                <option value="ventas" selected>Ventas</option>
+                <option value="inventario">Inventarios</option>
+                <option value="manufactura">Manufactura</option>
+                <option value="contabilidad">Contabilidad</option>
+              </select>
+            </label>
+            <label>
+              Cantidad
+              <input type="number" id="simQty" value="50" min="0" step="1">
+            </label>
+            <label>
+              Costo Unitario (USD)
+              <input type="number" id="simCostUsd" value="7.00" min="0" step="0.1">
+            </label>
+            <label>
+              Tipo de Cambio (USD/MXN)
+              <input type="number" id="simRate" value="20.15" min="0" step="0.01">
+            </label>
+            <label>
+              Precio Venta Estimado (MXN)
+              <input type="number" id="simSaleMxn" value="6500" min="0" step="100">
+            </label>
+          </div>
+
+          <div class="sim-computed-row">
+            <div class="computed-tile">
+              <span>total_cost_mxn (store=True)</span>
+              <strong id="simTotalCost">$7,052.50 MXN</strong>
+            </div>
+            <div class="computed-tile">
+              <span>gross_margin_pct (Política ≥ 15%)</span>
+              <strong id="simMarginPct">-8.50%</strong>
+            </div>
+          </div>
+
+          <div class="sim-actions">
+            <button type="button" class="btn-sim btn-sim-cyan" id="btnFetchRate">Actualizar Tipo de Cambio (API)</button>
+            <button type="button" class="btn-sim" id="btnSubmitReview">Enviar a Revisión</button>
+            <button type="button" class="btn-sim btn-sim-primary" id="btnApproveOrder">Aprobar Orden</button>
+            <button type="button" class="btn-sim" id="btnResetOrder">Borrador</button>
+          </div>
+
+          <div class="sim-alert" id="simAlertBox" role="status">
+            Prueba presionar <strong>Enviar a Revisión</strong> y luego <strong>Aprobar Orden</strong> para ver el bloqueo `UserError` por margen inferior al 15%. Después sube el precio de venta a <code>9500</code> y aprueba.
+          </div>
+
+          <div class="sim-chatter">
+            <span class="chatter-label">Chatter (`mail.thread` — Bitácora auditable)</span>
+            <ul id="simChatterLog">
+              <li>Registro inicializado en estado <strong>Borrador</strong>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Panel derecho: Simulador de API REST -->
+        <article class="odoo-panel">
+          <div class="panel-top">
+            <div>
+              <h3>Consola de Prueba API REST</h3>
+              <p>Replica `GET /api/v1/ordenes` implementado en `controllers/api.py`.</p>
+            </div>
+            <span class="http-badge http-200" id="apiStatusCode">Listo</span>
+          </div>
+
+          <div class="api-controls">
+            <label>
+              Header `X-API-Key`
+              <input type="text" id="apiKeyInput" value="integra-demo-key-2026" placeholder="Déjalo vacío para probar HTTP 401">
+            </label>
+            <label>
+              Filtro Query `?state=`
+              <select id="apiStateFilter">
+                <option value="">Todos los estatus</option>
+                <option value="approved" selected>approved</option>
+                <option value="review">review</option>
+                <option value="draft">draft</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="sim-actions">
+            <button type="button" class="btn-sim btn-sim-primary" id="btnRunApiValid">Enviar GET con API Key</button>
+            <button type="button" class="btn-sim btn-sim-danger" id="btnRunApiInvalid">Probar sin API Key (401)</button>
+          </div>
+
+          <div class="terminal-preview">
+            <div class="terminal-bar">
+              <span id="apiRequestLine">GET /api/v1/ordenes?state=approved</span>
+            </div>
+            <pre id="apiResponseOutput"><code>// Presiona un botón para inspeccionar la respuesta JSON del controlador.</code></pre>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Visor de código real del proyecto -->
+    <section class="odoo-section">
+      <div class="section-head">
+        <div>
+          <span class="odoo-eyebrow">03 / ARQUITECTURA Y CÓDIGO FUENTE</span>
+          <h2>Componentes implementados en el repositorio</h2>
+        </div>
+      </div>
+
+      <div class="code-viewer-panel">
+        <div class="code-tabs" role="tablist">
+          <button type="button" class="code-tab is-active" data-code="model">models/finance_order.py</button>
+          <button type="button" class="code-tab" data-code="api">controllers/api.py</button>
+          <button type="button" class="code-tab" data-code="docker">docker-compose.yml</button>
+          <button type="button" class="code-tab" data-code="backup">scripts/backup_odoo.sh</button>
+        </div>
+        <pre class="code-display"><code id="codeDisplayTarget"></code></pre>
+      </div>
+
+      <div class="prod-notes">
+        <h3>Consideraciones de despliegue en producción (Linux / Cloud)</h3>
+        <ul>
+          <li><strong>Seguridad de API:</strong> En entorno productivo, la llave `X-API-Key` se gestiona en `ir.config_parameter` o variables de entorno y se reemplaza `.sudo()` por un usuario técnico con permisos de solo lectura.</li>
+          <li><strong>Proxy Inverso y SSL:</strong> Nginx recibiendo tráfico HTTPS (443) hacia `127.0.0.1:8069` con `proxy_mode = True`, `list_db = False` y certificado automático con Certbot (Let's Encrypt).</li>
+          <li><strong>Persistencia y Respaldos:</strong> Volúmenes nombrados en Docker para PostgreSQL (`/var/lib/postgresql/data`) y ejecución programada de `pg_dump` + filestore vía `cron`.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-monogram">LJ<span>.</span></div>
+        <p>Luis Enrique Jiménez Bernal<br>Desarrollo Full Stack &amp; Análisis de Datos</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces del proyecto</h4>
+        <a href="./index.html">Portafolio Principal</a>
+        <a href="https://github.com/Don-kikin/odoo-erp-finance-ops" target="_blank" rel="noreferrer">Repositorio Odoo en GitHub</a>
+        <a href="./CV.Luis.Enrique.Jiménez.Bernal.pdf" target="_blank" download>Descargar CV (PDF)</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto directo</h4>
+        <a href="mailto:luisenriquejimenezber@gmail.com">luisenriquejimenezber@gmail.com</a>
+        <span>Miguel Hidalgo, CDMX</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="currentYear">2026</span> Luis Enrique Jiménez Bernal. Todos los derechos reservados.
+    </div>
+  </footer>
+</body>
+</html>
